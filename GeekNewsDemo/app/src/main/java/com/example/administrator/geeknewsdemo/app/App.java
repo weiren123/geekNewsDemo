@@ -9,7 +9,6 @@ import android.view.Display;
 import android.view.WindowManager;
 
 import com.example.administrator.geeknewsdemo.di.component.AppComponent;
-import com.example.administrator.geeknewsdemo.di.component.DaggerAppComponent;
 import com.example.administrator.geeknewsdemo.di.module.AppModule;
 
 import java.util.HashSet;

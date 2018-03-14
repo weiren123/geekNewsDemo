@@ -1,7 +1,10 @@
 package com.example.administrator.geeknewsdemo.di.component;
 
+import android.app.Activity;
+
 import com.example.administrator.geeknewsdemo.di.module.ActivityModule;
 import com.example.administrator.geeknewsdemo.di.scope.ActivityScope;
+import com.example.administrator.geeknewsdemo.ui.WelcomeActivity;
 
 import dagger.Component;
 
@@ -11,4 +14,7 @@ import dagger.Component;
 @ActivityScope
 @Component(dependencies = AppComponent.class,modules = ActivityModule.class)
 public interface ActivityComponent {
+    Activity getActivity();
+
+    void inject(WelcomeActivity welcomeActivity);
 }

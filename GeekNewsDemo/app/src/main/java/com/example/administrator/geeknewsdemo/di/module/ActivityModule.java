@@ -2,6 +2,8 @@ package com.example.administrator.geeknewsdemo.di.module;
 
 import android.app.Activity;
 
+import com.example.administrator.geeknewsdemo.di.scope.ActivityScope;
+
 import dagger.Module;
 import dagger.Provides;
 
@@ -15,6 +17,7 @@ public class ActivityModule {
         this.mActivity = activity;
     }
     @Provides
+    @ActivityScope
     public Activity provideActivity(){
         return mActivity;
     }
