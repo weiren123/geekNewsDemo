@@ -17,9 +17,15 @@ public abstract class SimpleActivity extends SupportActivity {
         super.onCreate(savedInstanceState);
         setContentView(getlayout());
         mBind = ButterKnife.bind(this);
-        initEventData();
+        onViewCreated();
         App.getInstance().addActivity(this);
+        initEventData();
     }
+
+    protected void onViewCreated() {
+
+    }
+
     protected void setToolBar(Toolbar toolbar,String title){
         toolbar.setTitle(title);
         setSupportActionBar(toolbar);

@@ -8,6 +8,10 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.example.administrator.geeknewsdemo.di.component.AppComponent;
+import com.example.administrator.geeknewsdemo.di.component.DaggerAppComponent;
+import com.example.administrator.geeknewsdemo.di.module.AppModule;
+
 import java.util.HashSet;
 import java.util.Set;
 
@@ -21,6 +25,7 @@ public class App extends Application {
     public static int SCREEN_HEIGHT = -1;
     public static float DIMEN_RATE = -1.0F;
     public static int DIMEN_DPI = -1;
+    private static AppComponent appComponent;
     private Set<Activity> allActivities;
 //    public static AppComponent appComponent;
     /**
@@ -87,13 +92,13 @@ public class App extends Application {
         android.os.Process.killProcess(android.os.Process.myPid());
         System.exit(0);
     }
-//    public static AppComponent getAppComponent(){
-//        if (appComponent == null) {
-//            appComponent = DaggerAppComponent.builder()
-//                    .appModule(new AppModule(instance))
-//                    .httpModule(new HttpModule())
-//                    .build();
-//        }
-//        return appComponent;
-//    }
+
+    public static AppComponent getAppComponent(){
+        if (appComponent == null) {
+            appComponent = DaggerAppComponent.builder()
+                    .appModule(new AppModule(instance))
+                    .build();
+        }
+        return appComponent;
+    }
 }
