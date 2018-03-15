@@ -8,14 +8,15 @@ import android.support.v7.widget.Toolbar;
 import com.example.administrator.geeknewsdemo.R;
 import com.example.administrator.geeknewsdemo.base.BaseActivity;
 import com.example.administrator.geeknewsdemo.base.contract.MainContrct;
+import com.example.administrator.geeknewsdemo.presenter.MainPresenter;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 
 import butterknife.BindView;
 
-public class MainActivity extends BaseActivity<MainContrct.Presenter> implements MainContrct.View {
+public class MainActivity extends BaseActivity<MainPresenter> implements MainContrct.View {
 
 
-    @BindView(R.id.tool_bar)
+    @BindView(R.id.toolbar)
     Toolbar toolBar;
     @BindView(R.id.view_search)
     MaterialSearchView viewSearch;
