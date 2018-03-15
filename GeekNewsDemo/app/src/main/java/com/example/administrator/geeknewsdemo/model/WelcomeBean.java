@@ -5,8 +5,8 @@ package com.example.administrator.geeknewsdemo.model;
  */
 
 public class WelcomeBean {
-    private String text;
     private String img;
+    private String text;
 
     public String getText() {
         return text;

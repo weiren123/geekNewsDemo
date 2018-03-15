@@ -9,10 +9,10 @@ import io.reactivex.disposables.Disposable;
 
 public class RxPresenter<T extends BaseView> implements BasePresenter<T> {
     private CompositeDisposable mCompositeDisposable;
-    private T mView;
+    protected T mView;
 
     protected void addSubscribe(Disposable substription){
-        if(mCompositeDisposable!=null){
+        if(mCompositeDisposable==null){
             mCompositeDisposable = new CompositeDisposable();
         }
     }

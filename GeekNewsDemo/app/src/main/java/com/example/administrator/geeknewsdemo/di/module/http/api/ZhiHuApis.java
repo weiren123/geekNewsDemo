@@ -11,12 +11,16 @@ import retrofit2.http.Path;
  */
 
 public interface ZhiHuApis {
-    String HOST = "http://news-at.zhihu.com/api/4/";
-
+//    String HOST = "http://news-at.zhihu.com/api/4/";
+    String HOST = "http://10.63.205.74:5000/";
+    //http://127.0.0.1:5000/startimage
     /**
      * 启动界面图片
      */
-    @GET("start-image/{res}")
+//    @GET("start-image/{res}")
+//    Flowable<WelcomeBean> getWelcomeInfo(@Path("res") String res);
+
+    @GET("startimage/{res}")
     Flowable<WelcomeBean> getWelcomeInfo(@Path("res") String res);
 
     /**

@@ -4,6 +4,7 @@ import android.app.Activity;
 
 import com.example.administrator.geeknewsdemo.di.module.ActivityModule;
 import com.example.administrator.geeknewsdemo.di.scope.ActivityScope;
+import com.example.administrator.geeknewsdemo.ui.MainActivity;
 import com.example.administrator.geeknewsdemo.ui.WelcomeActivity;
 
 import dagger.Component;
@@ -17,4 +18,6 @@ public interface ActivityComponent {
     Activity getActivity();
 
     void inject(WelcomeActivity welcomeActivity);
+
+    void inject(MainActivity mainActivity);
 }

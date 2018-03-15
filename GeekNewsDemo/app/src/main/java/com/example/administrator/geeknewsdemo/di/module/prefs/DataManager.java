@@ -3,6 +3,8 @@ package com.example.administrator.geeknewsdemo.di.module.prefs;
 import com.example.administrator.geeknewsdemo.di.module.http.HttpHelper;
 import com.example.administrator.geeknewsdemo.model.WelcomeBean;
 
+import javax.inject.Inject;
+
 import io.reactivex.Flowable;
 
 /**
@@ -11,6 +13,7 @@ import io.reactivex.Flowable;
 
 public class DataManager implements HttpHelper {
     HttpHelper mHttpHelper;
+    @Inject
     public DataManager(HttpHelper httpHelper){
         this.mHttpHelper = httpHelper;
     }

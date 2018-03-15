@@ -8,7 +8,9 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 
+import com.example.administrator.geeknewsdemo.component.InitializeService;
 import com.example.administrator.geeknewsdemo.di.component.AppComponent;
+import com.example.administrator.geeknewsdemo.di.component.DaggerAppComponent;
 import com.example.administrator.geeknewsdemo.di.module.AppModule;
 
 import java.util.HashSet;
@@ -27,6 +29,9 @@ public class App extends Application {
     private static AppComponent appComponent;
     private Set<Activity> allActivities;
 //    public static AppComponent appComponent;
+    public static synchronized App getInstance(){
+     return instance;
+    }
     /**
     *   AppCompatDelegate.setDefaultNightMode(xxx);
     *  这个方法可以设置四个值：
@@ -45,6 +50,7 @@ public class App extends Application {
         //初始化屏幕宽高
         getScreenSize();
         //初始化数据库
+        InitializeService.start(this);
     }
 
     private void getScreenSize() {
@@ -63,9 +69,7 @@ public class App extends Application {
         }
     }
 
-    public static synchronized App getInstance(){
-        return instance;
-    }
+
 
     public void addActivity(Activity act) {
         if (allActivities == null) {

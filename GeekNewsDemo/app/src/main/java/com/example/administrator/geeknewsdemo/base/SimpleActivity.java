@@ -1,5 +1,6 @@
 package com.example.administrator.geeknewsdemo.base;
 
+import android.app.Activity;
 import android.os.Bundle;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
@@ -12,11 +13,14 @@ import me.yokeyword.fragmentation.SupportActivity;
 
 public abstract class SimpleActivity extends SupportActivity {
     protected Unbinder mBind;
+    private Activity mContext;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(getlayout());
         mBind = ButterKnife.bind(this);
+        mContext = this;
         onViewCreated();
         App.getInstance().addActivity(this);
         initEventData();

@@ -2,8 +2,10 @@ package com.example.administrator.geeknewsdemo.di.module;
 
 import com.example.administrator.geeknewsdemo.app.App;
 import com.example.administrator.geeknewsdemo.di.module.http.HttpHelper;
+import com.example.administrator.geeknewsdemo.di.module.http.RetrofitHelper;
 import com.example.administrator.geeknewsdemo.di.module.prefs.DataManager;
 
+import javax.inject.Inject;
 import javax.inject.Singleton;
 
 import dagger.Module;
@@ -16,6 +18,7 @@ import dagger.Provides;
 @Module
 public class AppModule {
     App appliction;
+    @Inject
     public AppModule(App app){
         this.appliction = app;
     }
@@ -24,6 +27,13 @@ public class AppModule {
     public App providesApplicationContext(){
         return appliction;
     }
+
+    @Provides
+    @Singleton
+    HttpHelper provideHttpHelper(RetrofitHelper retrofitHelper) {
+        return retrofitHelper;
+    }
+
 
     @Provides
     @Singleton
