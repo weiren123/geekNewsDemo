@@ -13,7 +13,7 @@ import me.yokeyword.fragmentation.SupportActivity;
 
 public abstract class SimpleActivity extends SupportActivity {
     protected Unbinder mBind;
-    private Activity mContext;
+    protected Activity mContext;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
