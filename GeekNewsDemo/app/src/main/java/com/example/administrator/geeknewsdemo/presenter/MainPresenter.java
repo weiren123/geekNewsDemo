@@ -2,7 +2,7 @@ package com.example.administrator.geeknewsdemo.presenter;
 
 import com.example.administrator.geeknewsdemo.base.RxPresenter;
 import com.example.administrator.geeknewsdemo.base.contract.MainContrct;
-import com.example.administrator.geeknewsdemo.di.module.prefs.DataManager;
+import com.example.administrator.geeknewsdemo.model.DataManager;
 import com.tbruyelle.rxpermissions2.RxPermissions;
 
 import javax.inject.Inject;
@@ -27,31 +27,30 @@ public class MainPresenter extends RxPresenter<MainContrct.View> implements Main
 
     @Override
     public void checkPermissions(RxPermissions rxPermissions) {
-
     }
 
     @Override
     public void setNightModeState(boolean b) {
-
+        mDataManager.setNightModeState(b);
     }
 
     @Override
     public void setCurrentItem(int index) {
-
+        mDataManager.setCurrentItem(index);
     }
 
     @Override
     public int getCurrentItem() {
-        return 0;
+        return  mDataManager.getCurrentItem();
     }
 
     @Override
     public void setVersionPoint(boolean b) {
-
+        mDataManager.setVersionPoint(b);
     }
 
     @Override
     public boolean getVersionPoint() {
-        return false;
+        return mDataManager.getVersionPoint();
     }
 }

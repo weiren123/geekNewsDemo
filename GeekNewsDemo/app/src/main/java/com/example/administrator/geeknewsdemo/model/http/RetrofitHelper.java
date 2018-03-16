@@ -1,6 +1,6 @@
-package com.example.administrator.geeknewsdemo.di.module.http;
+package com.example.administrator.geeknewsdemo.model.http;
 
-import com.example.administrator.geeknewsdemo.di.module.http.api.ZhiHuApis;
+import com.example.administrator.geeknewsdemo.model.http.api.ZhiHuApis;
 import com.example.administrator.geeknewsdemo.model.WelcomeBean;
 
 import javax.inject.Inject;

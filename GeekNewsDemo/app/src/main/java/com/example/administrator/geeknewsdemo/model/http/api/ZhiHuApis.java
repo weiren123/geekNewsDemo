@@ -1,4 +1,4 @@
-package com.example.administrator.geeknewsdemo.di.module.http.api;
+package com.example.administrator.geeknewsdemo.model.http.api;
 
 import com.example.administrator.geeknewsdemo.model.WelcomeBean;
 

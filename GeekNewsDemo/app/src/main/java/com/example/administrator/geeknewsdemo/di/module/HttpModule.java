@@ -1,8 +1,8 @@
-package com.example.administrator.geeknewsdemo.model;
+package com.example.administrator.geeknewsdemo.di.module;
 
 import com.example.administrator.geeknewsdemo.BuildConfig;
 import com.example.administrator.geeknewsdemo.app.Constants;
-import com.example.administrator.geeknewsdemo.di.module.http.api.ZhiHuApis;
+import com.example.administrator.geeknewsdemo.model.http.api.ZhiHuApis;
 import com.example.administrator.geeknewsdemo.di.qualifier.ZhihuUrl;
 import com.example.administrator.geeknewsdemo.utils.SystemUtil;
 

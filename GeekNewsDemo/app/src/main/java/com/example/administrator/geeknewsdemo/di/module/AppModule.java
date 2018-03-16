@@ -1,9 +1,9 @@
 package com.example.administrator.geeknewsdemo.di.module;
 
 import com.example.administrator.geeknewsdemo.app.App;
-import com.example.administrator.geeknewsdemo.di.module.http.HttpHelper;
-import com.example.administrator.geeknewsdemo.di.module.http.RetrofitHelper;
-import com.example.administrator.geeknewsdemo.di.module.prefs.DataManager;
+import com.example.administrator.geeknewsdemo.model.http.HttpHelper;
+import com.example.administrator.geeknewsdemo.model.http.RetrofitHelper;
+import com.example.administrator.geeknewsdemo.model.DataManager;
 
 import javax.inject.Inject;
 import javax.inject.Singleton;
