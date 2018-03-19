@@ -1,7 +1,7 @@
 package com.example.administrator.geeknewsdemo.model.http;
 
 import com.example.administrator.geeknewsdemo.model.http.api.ZhiHuApis;
-import com.example.administrator.geeknewsdemo.model.WelcomeBean;
+import com.example.administrator.geeknewsdemo.model.bean.WelcomeBean;
 
 import javax.inject.Inject;
 

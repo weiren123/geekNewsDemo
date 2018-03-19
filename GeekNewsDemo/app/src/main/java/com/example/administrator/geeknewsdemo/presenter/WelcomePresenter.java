@@ -3,7 +3,7 @@ package com.example.administrator.geeknewsdemo.presenter;
 import com.example.administrator.geeknewsdemo.base.RxPresenter;
 import com.example.administrator.geeknewsdemo.base.contract.WelcomeContrct;
 import com.example.administrator.geeknewsdemo.model.DataManager;
-import com.example.administrator.geeknewsdemo.model.WelcomeBean;
+import com.example.administrator.geeknewsdemo.model.bean.WelcomeBean;
 import com.example.administrator.geeknewsdemo.utils.RxUtil;
 import com.orhanobut.logger.Logger;
 

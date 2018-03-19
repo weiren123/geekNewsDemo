@@ -2,7 +2,7 @@ package com.example.administrator.geeknewsdemo.base.contract;
 
 import com.example.administrator.geeknewsdemo.base.BasePresenter;
 import com.example.administrator.geeknewsdemo.base.BaseView;
-import com.example.administrator.geeknewsdemo.model.WelcomeBean;
+import com.example.administrator.geeknewsdemo.model.bean.WelcomeBean;
 
 /**
  * Created by Administrator on 2018/3/14.

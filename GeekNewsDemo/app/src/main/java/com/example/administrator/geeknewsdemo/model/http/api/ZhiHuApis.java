@@ -1,6 +1,6 @@
 package com.example.administrator.geeknewsdemo.model.http.api;
 
-import com.example.administrator.geeknewsdemo.model.WelcomeBean;
+import com.example.administrator.geeknewsdemo.model.bean.WelcomeBean;
 
 import io.reactivex.Flowable;
 import retrofit2.http.GET;

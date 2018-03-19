@@ -1,4 +1,4 @@
-package com.example.administrator.geeknewsdemo.model;
+package com.example.administrator.geeknewsdemo.model.bean;
 
 /**
  * Created by Administrator on 2018/3/14.

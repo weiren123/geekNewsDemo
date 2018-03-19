@@ -1,5 +1,7 @@
 package com.example.administrator.geeknewsdemo.model;
 
+import com.example.administrator.geeknewsdemo.model.bean.DailyListBean;
+import com.example.administrator.geeknewsdemo.model.bean.WelcomeBean;
 import com.example.administrator.geeknewsdemo.model.http.HttpHelper;
 import com.example.administrator.geeknewsdemo.model.prefs.PreferencesHelper;
 
@@ -25,6 +27,12 @@ public class DataManager implements HttpHelper,PreferencesHelper{
     public Flowable<WelcomeBean> fetchWelcomeInfo(String res) {
         return mHttpHelper.fetchWelcomeInfo(res);
     }
+
+    @Override
+    public Flowable<DailyListBean> fetchDailyListInfo(){
+        return mHttpHelper.fetchDailyListInfo();
+    }
+
 
     @Override
     public boolean getNightModeState() {

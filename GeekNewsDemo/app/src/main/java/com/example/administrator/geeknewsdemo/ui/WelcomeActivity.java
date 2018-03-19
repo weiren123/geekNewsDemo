@@ -9,7 +9,7 @@ import com.example.administrator.geeknewsdemo.R;
 import com.example.administrator.geeknewsdemo.base.BaseActivity;
 import com.example.administrator.geeknewsdemo.base.contract.WelcomeContrct;
 import com.example.administrator.geeknewsdemo.component.ImageLoader;
-import com.example.administrator.geeknewsdemo.model.WelcomeBean;
+import com.example.administrator.geeknewsdemo.model.bean.WelcomeBean;
 import com.example.administrator.geeknewsdemo.presenter.WelcomePresenter;
 
 import butterknife.BindView;
