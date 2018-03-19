@@ -2,6 +2,8 @@ package com.example.administrator.geeknewsdemo.di.module;
 
 import com.example.administrator.geeknewsdemo.app.App;
 import com.example.administrator.geeknewsdemo.model.DataManager;
+import com.example.administrator.geeknewsdemo.model.db.DBHelper;
+import com.example.administrator.geeknewsdemo.model.db.RealmHelper;
 import com.example.administrator.geeknewsdemo.model.http.HttpHelper;
 import com.example.administrator.geeknewsdemo.model.http.RetrofitHelper;
 import com.example.administrator.geeknewsdemo.model.prefs.ImplPreferencesHelper;
@@ -41,9 +43,16 @@ public class AppModule {
     PreferencesHelper providePreferencesHelper(ImplPreferencesHelper implPreferencesHelper) {
         return implPreferencesHelper;
     }
+
     @Provides
     @Singleton
-    DataManager provideDataManager(HttpHelper httpHelper, PreferencesHelper preferencesHelper) {
-        return new DataManager(httpHelper,preferencesHelper);
+    DBHelper provideDBHelper(RealmHelper realmHelper) {
+        return realmHelper;
+    }
+
+    @Provides
+    @Singleton
+    DataManager provideDataManager(HttpHelper httpHelper, PreferencesHelper preferencesHelper, DBHelper dbHelper) {
+        return new DataManager(httpHelper,preferencesHelper,dbHelper);
     }
 }

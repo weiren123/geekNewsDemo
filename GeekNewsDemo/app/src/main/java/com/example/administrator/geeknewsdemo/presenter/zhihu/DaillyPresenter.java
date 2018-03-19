@@ -7,6 +7,8 @@ import com.example.administrator.geeknewsdemo.model.bean.DailyListBean;
 import com.example.administrator.geeknewsdemo.utils.RxUtil;
 import com.example.administrator.geeknewsdemo.widget.CommonSubscriber;
 
+import java.util.List;
+
 import io.reactivex.annotations.NonNull;
 import io.reactivex.functions.Function;
 
@@ -17,6 +19,7 @@ import io.reactivex.functions.Function;
 public class DaillyPresenter extends RxPresenter<DailyContract.View> implements DailyContract.Presenter{
 
     private  DataManager mDatamanager;
+    private int topCount;
 
     public DaillyPresenter(DataManager dataManager){
         this.mDatamanager = dataManager;
@@ -28,13 +31,18 @@ public class DaillyPresenter extends RxPresenter<DailyContract.View> implements 
         .map(new Function<DailyListBean, DailyListBean>() {
             @Override
             public DailyListBean apply(@NonNull DailyListBean dailyListBean) throws Exception {
-                return null;
+                List<DailyListBean.StoriesBean> stories = dailyListBean.getStories();
+                for(DailyListBean.StoriesBean item : stories) {
+                  item.setReadState(mDatamanager.queryNewsId(item.getId()));
+                }
+                return dailyListBean;
             }
         })
         .subscribeWith(new CommonSubscriber<DailyListBean>(mView) {
             @Override
             public void onNext(DailyListBean dailyListBean) {
-
+                topCount = dailyListBean.getTop_stories().size();
+                mView.showContent(dailyListBean);
             }
         })
         );

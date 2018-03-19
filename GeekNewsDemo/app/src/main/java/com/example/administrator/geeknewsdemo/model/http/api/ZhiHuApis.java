@@ -1,5 +1,6 @@
 package com.example.administrator.geeknewsdemo.model.http.api;
 
+import com.example.administrator.geeknewsdemo.model.bean.DailyListBean;
 import com.example.administrator.geeknewsdemo.model.bean.WelcomeBean;
 
 import io.reactivex.Flowable;
@@ -11,8 +12,8 @@ import retrofit2.http.Path;
  */
 
 public interface ZhiHuApis {
-//    String HOST = "http://news-at.zhihu.com/api/4/";
-    String HOST = "http://10.63.205.74:5000/";
+    String HOST = "http://news-at.zhihu.com/api/4/";
+//    String HOST = "http://10.63.205.74:5000/";
     //http://127.0.0.1:5000/startimage
     /**
      * 启动界面图片
@@ -26,8 +27,8 @@ public interface ZhiHuApis {
     /**
      * 最新日报
      */
-//    @GET("news/latest")
-//    Flowable<DailyListBean> getDailyList();
+    @GET("news/latest")
+    Flowable<DailyListBean> getDailyList();
 
     /**
      * 往期日报

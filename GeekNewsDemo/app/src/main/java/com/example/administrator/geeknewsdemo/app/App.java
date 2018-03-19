@@ -16,6 +16,8 @@ import com.example.administrator.geeknewsdemo.di.module.AppModule;
 import java.util.HashSet;
 import java.util.Set;
 
+import io.realm.Realm;
+
 /**
  * Created by Administrator on 2018/3/14.
  */
@@ -49,6 +51,8 @@ public class App extends Application {
         instance = this;
         //初始化屏幕宽高
         getScreenSize();
+        //初始化数据库
+        Realm.init(getApplicationContext());
         //初始化数据库
         InitializeService.start(this);
     }
