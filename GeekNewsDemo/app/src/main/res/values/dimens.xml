@@ -6,4 +6,6 @@
     <dimen name="drawer_image_height">180dp</dimen>
     <dimen name="detail_image_height">260dp</dimen>
     <dimen name="detail_bottom_height">56dp</dimen>
+    <dimen name="top_viewpager_height">200dp</dimen>
+    <dimen name="list_image_size">80dp</dimen>
 </resources>

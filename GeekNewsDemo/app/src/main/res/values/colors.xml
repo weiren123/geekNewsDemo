@@ -10,5 +10,7 @@
     <color name="drawer_header_text">#2c2c2c</color>
     <color name="drawer_item_bg_p">#e8e8e8</color>
     <color name="fab_bg">#FF4081</color>
+    <color name="colorText">#2C2C2C</color>
+    <color name="colorCard">#FFFFFF</color>
 
 </resources>
