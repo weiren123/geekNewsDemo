@@ -1,6 +1,7 @@
 package com.example.administrator.geeknewsdemo.ui.zhihu.adapter;
 
 import android.content.Context;
+import android.support.v4.content.ContextCompat;
 import android.support.v4.view.PagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.util.DiffUtil;
@@ -84,9 +85,30 @@ public class DailyAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
         if(holder instanceof ContentViewHolder){
-
+            final int contentPosition;
+            if(isBefore) {
+                contentPosition = position - 1;
+            } else {
+                contentPosition = position - 2;
+            }
+            ((ContentViewHolder)holder).tvDailyItemTitle.setText(mList.get(contentPosition).getTitle());
+            if (mList.get(contentPosition).getReadState()) {
+                ((ContentViewHolder)holder).tvDailyItemTitle.setTextColor(ContextCompat.getColor(mContext,R.color.news_read));
+            } else {
+                ((ContentViewHolder)holder).tvDailyItemTitle.setTextColor(ContextCompat.getColor(mContext,R.color.news_unread));
+            }
+            ImageLoader.load(mContext,mList.get(contentPosition).getImages().get(0),((ContentViewHolder)holder).ivDailyItemImage);
+            holder.itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+//                    if(onItemClickListener != null) {
+//                        ImageView iv = (ImageView) view.findViewById(R.id.iv_daily_item_image);
+//                        onItemClickListener.onItemClick(contentPosition,iv);
+//                    }
+                }
+            });
         }else if(holder instanceof DateViewHolder){
-
+            ((DateViewHolder) holder).tvDailyDate.setText(currentTitle);
         }else {
             ((TopViewHolder)holder).vpTop.setAdapter(topPagerAdapter);
             topViewPager = ((TopViewHolder)holder).vpTop;

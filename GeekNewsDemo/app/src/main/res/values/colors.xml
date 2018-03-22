@@ -12,5 +12,7 @@
     <color name="fab_bg">#FF4081</color>
     <color name="colorText">#2C2C2C</color>
     <color name="colorCard">#FFFFFF</color>
+    <color name="news_read">#898989</color>
+    <color name="news_unread">#000000</color>
 
 </resources>
