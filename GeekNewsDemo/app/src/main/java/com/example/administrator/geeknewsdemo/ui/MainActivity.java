@@ -17,6 +17,7 @@ import com.example.administrator.geeknewsdemo.base.BaseActivity;
 import com.example.administrator.geeknewsdemo.base.contract.MainContrct;
 import com.example.administrator.geeknewsdemo.component.UpdateService;
 import com.example.administrator.geeknewsdemo.presenter.MainPresenter;
+import com.example.administrator.geeknewsdemo.ui.zhihu.fragment.GankFragment;
 import com.example.administrator.geeknewsdemo.ui.zhihu.fragment.ZhihuMainFragment;
 import com.miguelcatalan.materialsearchview.MaterialSearchView;
 import com.tbruyelle.rxpermissions2.RxPermissions;
@@ -40,6 +41,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     private int showFragment;
     private MenuItem mMenuItem;
     private int hideFragment;
+    private GankFragment gankFragment;
 
     @Override
     public void showUpdateDialog(String versionContent) {
@@ -79,12 +81,13 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     @Override
     protected void initEventData() {
         zhihuMainFragment = new ZhihuMainFragment();
+        gankFragment = new GankFragment();
         setToolBar(toolBar,"知乎日报");
         drawerToggle = new ActionBarDrawerToggle(this, drawer, toolBar, R.string.drawer_open, R.string.drawer_close);
         drawerToggle.syncState();
         drawer.addDrawerListener(drawerToggle);
         mMenuItem = navigation.getMenu().findItem(R.id.drawer_zhihu);
-        loadMultipleRootFragment(R.id.fl_main_content,0,zhihuMainFragment);
+        loadMultipleRootFragment(R.id.fl_main_content,0,zhihuMainFragment,gankFragment);
         navigation.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
@@ -135,7 +138,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
             case Constants.TYPE_ZHIHU:
                 return zhihuMainFragment;
             case Constants.TYPE_GANK:
-                return zhihuMainFragment;
+                return gankFragment;
             case Constants.TYPE_WECHAT:
                 return zhihuMainFragment;
             case Constants.TYPE_GOLD:

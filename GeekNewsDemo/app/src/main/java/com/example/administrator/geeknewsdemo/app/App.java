@@ -3,6 +3,7 @@ package com.example.administrator.geeknewsdemo.app;
 import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
+import android.os.Environment;
 import android.support.v7.app.AppCompatDelegate;
 import android.util.DisplayMetrics;
 import android.view.Display;
@@ -12,7 +13,10 @@ import com.example.administrator.geeknewsdemo.component.InitializeService;
 import com.example.administrator.geeknewsdemo.di.component.AppComponent;
 import com.example.administrator.geeknewsdemo.di.component.DaggerAppComponent;
 import com.example.administrator.geeknewsdemo.di.module.AppModule;
+import com.yixia.camera.VCamera;
+import com.yixia.camera.util.DeviceUtils;
 
+import java.io.File;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -55,6 +59,29 @@ public class App extends Application {
         Realm.init(getApplicationContext());
         //初始化数据库
         InitializeService.start(this);
+
+        initVcamera();
+    }
+
+    private void initVcamera() {
+        // 设置拍摄视频缓存路径
+        File dcim = Environment
+                .getExternalStoragePublicDirectory(Environment.DIRECTORY_DCIM);
+        if (DeviceUtils.isZte()) {
+            if (dcim.exists()) {
+                VCamera.setVideoCachePath(dcim + "/WeChatJuns/");
+            } else {
+                VCamera.setVideoCachePath(dcim.getPath().replace("/sdcard/",
+                        "/sdcard-ext/")
+                        + "/WeChatJuns/");
+            }
+        } else {
+            VCamera.setVideoCachePath(dcim + "/WeChatJuns/");
+        }
+        // 开启log输出,ffmpeg输出到logcat
+        VCamera.setDebugMode(true);
+        // 初始化拍摄SDK，必须
+        VCamera.initialize(this);
     }
 
     private void getScreenSize() {
